@@ -6,48 +6,25 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(label)
-        view.addSubview(usernameTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(signInButton)
     }
     
-    private var label: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: UIScreen.main.bounds.height * 0.1, width: UIScreen.main.bounds.width, height: 50))
-      label.textAlignment = .center
-      label.text = "Manav"
-
-      return label
-        
-    }()
+ 
+    @IBAction func signInButton(_ sender: Any) {
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!)
+    }
     
-    private var usernameTextField: UISearchTextField = {
-        
-        let usernameTextField = UISearchTextField(frame: CGRect(x: 0, y: UIScreen.main.bounds.height * 0.2, width: UIScreen.main.bounds.width, height: 50))
-        usernameTextField.textAlignment = .center
-        usernameTextField.placeholder = "E Mail Giriniz"
-        return usernameTextField
-        
-    }()
-
-    private var passwordTextField: UISearchTextField = {
-        
-        let passwordTextField = UISearchTextField(frame: CGRect(x: 0, y: UIScreen.main.bounds.height * 0.3, width: UIScreen.main.bounds.width, height: 50))
-        passwordTextField.textAlignment = .center
-        passwordTextField.placeholder = "Password Giriniz"
-        return passwordTextField
-        
-    }()
-    
-    private var signInButton : UIButton = {
-        let signInButton = UIButton(frame: CGRect(x: 0, y: UIScreen.main.bounds.height * 0.4, width: UIScreen.main.bounds.width, height: 50))
-        return signInButton
-    }()
+   
+    @IBAction func signUpButton(_ sender: Any) {
+        performSegue(withIdentifier: "toSignUpPage", sender: nil)
+    }
     
 }
 
