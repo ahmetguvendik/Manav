@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manav" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9v-K6-oXh">
-                                <rect key="frame" x="150" y="133" width="130" height="20"/>
+                                <rect key="frame" x="150" y="133" width="50.333333333333343" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Dvy-zQ-6ns"/>
                                     <constraint firstAttribute="height" constant="20" id="zTK-2z-lZz"/>
@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pmz-gT-TDZ">
-                                <rect key="frame" x="30" y="193" width="370" height="35"/>
+                                <rect key="frame" x="30" y="193" width="290.33333333333331" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="J0f-eX-dnE"/>
                                 </constraints>
@@ -36,7 +36,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glE-g2-PB3">
-                                <rect key="frame" x="30" y="268" width="350" height="35"/>
+                                <rect key="frame" x="30" y="268" width="270.33333333333331" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Rgw-Zp-wsm"/>
                                 </constraints>
@@ -44,7 +44,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DL2-4E-oK4">
-                                <rect key="frame" x="30" y="333" width="205" height="35"/>
+                                <rect key="frame" x="29.999999999999993" y="333" width="125.33333333333331" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="RJH-pi-RE9"/>
                                     <constraint firstAttribute="width" constant="135" id="ZIz-ur-y4k"/>
@@ -56,7 +56,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLx-Eh-sBQ">
-                                <rect key="frame" x="265" y="333" width="135" height="35"/>
+                                <rect key="frame" x="185.33333333333334" y="333" width="135.00000000000003" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Pb4-r5-onZ"/>
                                     <constraint firstAttribute="width" constant="135" id="fLk-ms-8Vq"/>
@@ -103,10 +103,21 @@
         <!--Main View Controller-->
         <scene sceneID="RPe-H7-5Te">
             <objects>
-                <viewController id="twY-f8-vaU" customClass="MainViewController" customModule="Manav" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainPage" id="twY-f8-vaU" customClass="MainViewController" customModule="Manav" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eFd-Zq-N1V">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoK-XP-LJ5">
+                                <rect key="frame" x="178" y="379" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="signOut:" destination="twY-f8-vaU" eventType="touchUpInside" id="8iW-bi-7lP"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="JkC-Q7-e8Q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
