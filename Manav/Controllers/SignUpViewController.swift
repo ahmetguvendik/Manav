@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 
+
 class SignUpViewController: UIViewController,UINavigationControllerDelegate {
     
     @IBOutlet var nameTextField: UITextField!
@@ -16,6 +17,7 @@ class SignUpViewController: UIViewController,UINavigationControllerDelegate {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var confirmPasswordTextField: UITextField!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +29,15 @@ class SignUpViewController: UIViewController,UINavigationControllerDelegate {
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { result, error in
                 if error == nil {
                     self.dismiss(animated: true, completion: nil) //back to page
+                    let db = Firestore.firestore()
+                    let personInfo = ["email" : self.emailTextField.text ?? "" , "Ad" : self.nameTextField.text ?? "" , "Soyad" : self.surnameTextField.text ?? "" , "Yas" : self.ageTextField.text ?? ""] as [String : Any]
+                    db.collection("Users").document(self.emailTextField.text!).setData(personInfo) { error in
+                        if error != nil {
+                            self.errorAlert(error: error?.localizedDescription ?? "HATA")
+                        }
+                        
+                    }
+                        
                 }
                 else{
                     self.errorAlert(error: error?.localizedDescription ?? "")
@@ -37,6 +48,8 @@ class SignUpViewController: UIViewController,UINavigationControllerDelegate {
             self.errorAlert(error: "Kullanıcı Adı ve ya Sifre Yok/Eşleşmiyor")
         }
       
+      
+        
     }
    
     func errorAlert(error : String){
