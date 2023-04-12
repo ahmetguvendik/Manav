@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manav" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9v-K6-oXh">
-                                <rect key="frame" x="150" y="133" width="50.333333333333343" height="20"/>
+                                <rect key="frame" x="150" y="89" width="50.333333333333343" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Dvy-zQ-6ns"/>
                                     <constraint firstAttribute="height" constant="20" id="zTK-2z-lZz"/>
@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pmz-gT-TDZ">
-                                <rect key="frame" x="30" y="193" width="290.33333333333331" height="35"/>
+                                <rect key="frame" x="30" y="149" width="290.33333333333331" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="J0f-eX-dnE"/>
                                 </constraints>
@@ -36,7 +36,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glE-g2-PB3">
-                                <rect key="frame" x="30" y="268" width="270.33333333333331" height="35"/>
+                                <rect key="frame" x="30" y="224" width="270.33333333333331" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Rgw-Zp-wsm"/>
                                 </constraints>
@@ -44,7 +44,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DL2-4E-oK4">
-                                <rect key="frame" x="29.999999999999993" y="333" width="125.33333333333331" height="35"/>
+                                <rect key="frame" x="30" y="289" width="135" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="RJH-pi-RE9"/>
                                     <constraint firstAttribute="width" constant="135" id="ZIz-ur-y4k"/>
@@ -56,7 +56,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLx-Eh-sBQ">
-                                <rect key="frame" x="185.33333333333334" y="333" width="135.00000000000003" height="35"/>
+                                <rect key="frame" x="195.00000000000003" y="289" width="125.33333333333334" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Pb4-r5-onZ"/>
                                     <constraint firstAttribute="width" constant="135" id="fLk-ms-8Vq"/>
@@ -108,24 +108,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoK-XP-LJ5">
-                                <rect key="frame" x="178" y="379" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="signOut:" destination="twY-f8-vaU" eventType="touchUpInside" id="8iW-bi-7lP"/>
-                                </connections>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9w-1X-dYG">
+                                <rect key="frame" x="0.0" y="73" width="430" height="44"/>
+                                <items>
+                                    <navigationItem title="Manav" id="J8V-s6-Abf">
+                                        <barButtonItem key="rightBarButtonItem" title="SignOut" id="11E-TV-kjV">
+                                            <connections>
+                                                <action selector="signOut:" destination="twY-f8-vaU" id="OCn-8B-0kC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DzB-Ft-wWO">
+                                <rect key="frame" x="0.0" y="117" width="430" height="732"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JkC-Q7-e8Q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B9w-1X-dYG" firstAttribute="top" secondItem="JkC-Q7-e8Q" secondAttribute="top" constant="14" id="Bk1-QX-xe7"/>
+                            <constraint firstItem="DzB-Ft-wWO" firstAttribute="top" secondItem="B9w-1X-dYG" secondAttribute="bottom" id="FHt-IF-wuX"/>
+                            <constraint firstItem="B9w-1X-dYG" firstAttribute="trailing" secondItem="DzB-Ft-wWO" secondAttribute="trailing" id="H67-s6-nTp"/>
+                            <constraint firstItem="DzB-Ft-wWO" firstAttribute="leading" secondItem="JkC-Q7-e8Q" secondAttribute="leading" id="Nia-UP-OTt"/>
+                            <constraint firstItem="JkC-Q7-e8Q" firstAttribute="trailing" secondItem="DzB-Ft-wWO" secondAttribute="trailing" id="V2S-MT-Erq"/>
+                            <constraint firstItem="B9w-1X-dYG" firstAttribute="leading" secondItem="DzB-Ft-wWO" secondAttribute="leading" id="gbm-15-bVt"/>
+                            <constraint firstItem="JkC-Q7-e8Q" firstAttribute="bottom" secondItem="DzB-Ft-wWO" secondAttribute="bottom" id="uUj-TI-Vnp"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WIS-t6-qVK"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="qov-IQ-FkG"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="DzB-Ft-wWO" id="Pb2-TP-o7K"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toSignInPage" id="Jyl-5B-glq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fc4-hP-Ndo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="624"/>
+            <point key="canvasLocation" x="-52" y="708"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ful-VQ-hgi">
@@ -260,6 +282,9 @@
             <point key="canvasLocation" x="64.186046511627907" y="-34.763948497854081"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Jyl-5B-glq"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
