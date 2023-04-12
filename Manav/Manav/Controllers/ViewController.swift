@@ -22,7 +22,7 @@ class ViewController: UIViewController {
             if error == nil {
                 self.performSegue(withIdentifier: "toMainPage", sender: nil)
             } else {
-                self.errorAlert(error: "HATA")
+                self.errorAlert(error: error?.localizedDescription ?? "Error")
             }
         }
     }

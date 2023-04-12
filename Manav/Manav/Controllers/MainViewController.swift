@@ -17,8 +17,9 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = productArray[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableView",for: indexPath) as! ProductTableViewCell
+        cell.productNameLabel.text = self.productArray[indexPath.row].name
+        cell.priceLabel.text = self.productArray[indexPath.row].price
         return cell
     }
     
@@ -41,8 +42,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         } catch {
             print("HATA")
         }
-       
     }
+    
     
     var productArray = [Product]()
     func getProduct(){

@@ -17,7 +17,13 @@ class SignUpViewController: UIViewController,UINavigationControllerDelegate {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var confirmPasswordTextField: UITextField!
-   
+    
+    @IBOutlet var bactToSignIn: UIButton!
+    
+    @IBAction func backToSignInAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil) //back to page
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,7 +34,8 @@ class SignUpViewController: UIViewController,UINavigationControllerDelegate {
         if emailTextField.text != "" && passwordTextField.text != "" && passwordTextField.text == confirmPasswordTextField.text{
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { result, error in
                 if error == nil {
-                    self.dismiss(animated: true, completion: nil) //back to page
+                    self.succesAlert(message: "Kayit Olma Basarili")
+                   
                     let db = Firestore.firestore()
                     let personInfo = ["email" : self.emailTextField.text ?? "" , "Ad" : self.nameTextField.text ?? "" , "Soyad" : self.surnameTextField.text ?? "" , "Yas" : self.ageTextField.text ?? ""] as [String : Any]
                     db.collection("Users").document(self.emailTextField.text!).setData(personInfo) { error in
@@ -58,7 +65,14 @@ class SignUpViewController: UIViewController,UINavigationControllerDelegate {
            alertController.addAction(okButton)
            present(alertController, animated: true)
        }
-
+    
+    func succesAlert(message : String){
+           alertController = UIAlertController(title: "Succes", message: message, preferredStyle: .alert)
+           let okButton = UIAlertAction(title: "OK", style: .cancel)
+           alertController.addAction(okButton)
+           present(alertController, animated: true)
+       }
+    
 }
 
    
