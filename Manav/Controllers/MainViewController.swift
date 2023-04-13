@@ -23,7 +23,11 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return cell
     }
     
-
+    
+    @IBAction func basketButton(_ sender: Any) {
+        performSegue(withIdentifier: "toBasketPage", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self

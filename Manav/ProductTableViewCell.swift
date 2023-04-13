@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProductTableViewCell: UITableViewCell {
     
@@ -13,6 +14,15 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet var productNameLabel: UILabel!
     
     @IBAction func addToBasket(_ sender: Any) {
+        let currentUser = Auth.auth().currentUser?.email
+        let db = Firestore.firestore()
+        if currentUser != nil {
+            let uuid = UUID()
+            let data = ["ProductName": productNameLabel.text , "ProductPrice" : priceLabel.text] as! [String : Any]
+            db.collection("Baskets").document(currentUser!).collection("BasketProdcut").document(uuid.uuidString).setData(data)
+               
+        }
+        
     }
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,5 +34,7 @@ class ProductTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+   
 
 }

@@ -112,7 +112,7 @@
                                 <rect key="frame" x="0.0" y="112" width="430" height="771"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ProductTableView" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductTableView" rowHeight="122" id="UWV-DM-w8s" customClass="ProductTableViewCell" customModule="Manav" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductTableView" rowHeight="122" id="UWV-DM-w8s" customClass="ProductTableViewCell" customModule="Manav" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="430" height="122"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UWV-DM-w8s" id="egT-1C-ob1">
@@ -173,6 +173,9 @@
                                 <rect key="frame" x="334" y="68" width="76" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Basket"/>
+                                <connections>
+                                    <action selector="basketButton:" destination="twY-f8-vaU" eventType="touchUpInside" id="fJO-V0-0fj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1K1-5n-HVo">
                                 <rect key="frame" x="20" y="69" width="117" height="35"/>
@@ -205,11 +208,43 @@
                     <connections>
                         <outlet property="tableView" destination="DzB-Ft-wWO" id="Pb2-TP-o7K"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toSignInPage" modalPresentationStyle="fullScreen" id="Jyl-5B-glq"/>
+                        <segue destination="kj4-j8-ekW" kind="presentation" identifier="toBasketPage" modalPresentationStyle="fullScreen" id="ucz-2d-qBi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fc4-hP-Ndo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-53.02325581395349" y="707.51072961373393"/>
+        </scene>
+        <!--Basket View Controller-->
+        <scene sceneID="Unp-x2-YIv">
+            <objects>
+                <viewController id="kj4-j8-ekW" customClass="BasketViewController" customModule="Manav" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PHy-JV-cxe">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bAL-Dt-7cG">
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SgG-NI-asZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bAL-Dt-7cG" firstAttribute="top" secondItem="SgG-NI-asZ" secondAttribute="top" id="KtT-WH-XTw"/>
+                            <constraint firstItem="SgG-NI-asZ" firstAttribute="bottom" secondItem="bAL-Dt-7cG" secondAttribute="bottom" id="RpM-RE-Sp2"/>
+                            <constraint firstItem="SgG-NI-asZ" firstAttribute="trailing" secondItem="bAL-Dt-7cG" secondAttribute="trailing" id="XSQ-0y-duy"/>
+                            <constraint firstItem="bAL-Dt-7cG" firstAttribute="leading" secondItem="SgG-NI-asZ" secondAttribute="leading" id="xHS-I3-1dY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8nb-GA-v6d"/>
+                    <connections>
+                        <outlet property="tableView" destination="bAL-Dt-7cG" id="XM6-AW-Z54"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0xa-Xf-dG1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043.7209302325582" y="731.97424892703873"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ful-VQ-hgi">
