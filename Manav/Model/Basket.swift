@@ -9,9 +9,9 @@ import Foundation
 
 class Basket {
     var productName : String
-    var productPrice : String
+    var productPrice : Int
     
-    init(productName: String, productPrice: String) {
+    init(productName: String, productPrice: Int) {
         self.productName = productName
         self.productPrice = productPrice
     }

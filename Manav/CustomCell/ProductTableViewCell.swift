@@ -18,7 +18,7 @@ class ProductTableViewCell: UITableViewCell {
         let db = Firestore.firestore()
         if currentUser != nil {
             let uuid = UUID()
-            let data = ["ProductName": productNameLabel.text , "ProductPrice" : priceLabel.text] as! [String : Any]
+            let data = ["ProductName": productNameLabel.text , "ProductPrice" : priceLabel.text ] as! [String : Any]
             db.collection("Baskets").document(currentUser!).collection("BasketProdcut").document(uuid.uuidString).setData(data)
                
         }

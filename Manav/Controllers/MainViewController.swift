@@ -19,7 +19,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableView",for: indexPath) as! ProductTableViewCell
         cell.productNameLabel.text = self.productArray[indexPath.row].name
-        cell.priceLabel.text = self.productArray[indexPath.row].price
+        cell.priceLabel.text = "\(self.productArray[indexPath.row].price)"
         return cell
     }
     
@@ -33,8 +33,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         tableView.delegate = self
         tableView.dataSource = self
         getProduct()
-
-       
     }
     
 
@@ -48,7 +46,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
     }
     
-    
+
     var productArray = [Product]()
     func getProduct(){
         let db = Firestore.firestore()
@@ -73,6 +71,5 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             }
         }
     }
-    
     
 }
