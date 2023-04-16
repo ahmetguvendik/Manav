@@ -22,6 +22,7 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     
     @IBOutlet var totalPriceLabel: UILabel!
+    @IBOutlet var personLabel: UILabel!
     
     @IBAction func backButton(_ sender: Any) {
         performSegue(withIdentifier: "toMainPage", sender: nil)
@@ -33,8 +34,8 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
         tableView.dataSource = self
         getBasket()
         getTotalPrice()
+        changeLabel()
         
-        // Do any additional setup after loading the view.
     }
     var totalCost = 0
     @IBOutlet var tableView: UITableView!
@@ -63,20 +64,41 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
         let db = Firestore.firestore()
         let currentUser = Auth.auth().currentUser?.email
         db.collection("Baskets").document(currentUser!).collection("BasketProdcut").addSnapshotListener { query, error in
-           if error == nil {
-               if query?.isEmpty == false {
-                   for data in query!.documents {
-                       if let price = data.get("ProductPrice") as? String{
-                           self.totalCost += Int(price)!
-                           self.totalPriceLabel.text = String(self.totalCost)
-                       }
-                            
-                   }
-               }
+            if error == nil {
+                if query?.isEmpty == false {
+                    for data in query!.documents {
+                        if let price = data.get("ProductPrice") as? String{
+                            self.totalCost += Int(price)!
+                            self.totalPriceLabel.text = String(self.totalCost)
+                        }
+                        
+                    }
+                }
             }
         }
     }
     
+    func changeLabel(){
+        let db = Firestore.firestore()
+        let user = Auth.auth().currentUser?.email
+        let docRef = db.collection("Users").document(user!)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                if let name = document.get("Ad") as? String {
+                    if let surname = document.get("Soyad") as? String {
+                        self.personLabel.text = "Welcome \(name) \(surname) "
+                    }
+                }
+            } else {
+                print("Belge yok")
+            }
+        }
+
+
+            
+        
+    }
+       
 }
    
     
