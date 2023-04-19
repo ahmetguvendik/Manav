@@ -21,6 +21,18 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     
+    @IBAction func payButton(_ sender: Any) {
+        performSegue(withIdentifier: "toPayPage", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPayPage" {
+            let payVC = segue.destination as! PayViewController
+            payVC.totalPrice = String(self.totalCost)
+         
+        }
+    }
+    
     @IBOutlet var totalPriceLabel: UILabel!
     @IBOutlet var personLabel: UILabel!
     
@@ -54,12 +66,14 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
                                 self.basketArray.append(baskets)
                             }
                             self.tableView.reloadData()
+                            print(self.basketArray)
                         }
                     }
                 }
             }
         }
     }
+    
     func getTotalPrice(){
         let db = Firestore.firestore()
         let currentUser = Auth.auth().currentUser?.email
